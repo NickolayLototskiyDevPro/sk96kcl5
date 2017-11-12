@@ -124,6 +124,9 @@ const ProjectModule = (function () {
             if (typeof callback !== 'function') {
               console.log('Callback is not a function');
               return false;
+            } else if (this.isBusy === true) {
+              console.log('Object is busy now');
+              return false;
             } else {
               this.isBusy = true;
               return setTimeout(() => func.call(this), time);
